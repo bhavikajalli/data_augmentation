@@ -12,14 +12,14 @@ import random
 
 #Should convert the Image names before running the program
 
-bg_db = "/media/DensoML/59fbdd49-f78b-49c9-8a31-aac5cc3ff172/MERGED_BACKGROUND/" #The directory for background
+bg_db = <the directory where the background images are saved> #The directory for background
 #random.shuffle(bg_db)
 bg = 217340 #NUmber of background images
-outfile = "/media/DensoML/59fbdd49-f78b-49c9-8a31-aac5cc3ff172/tl/"
-processfile = '/media/DensoML/59fbdd49-f78b-49c9-8a31-aac5cc3ff172/final_dataset/train/'
+outfile = <The directory where the output images are to be stored>
+processfile = <the directory containing the cropped traffic light images>
 
 img = 0
-list_file = open("/home/spc/darknet/train_11classes.txt","w")
+list_file = open("train.txt","w") #To create the train file for YOLO training
 
 for i in range(11):
 
@@ -106,7 +106,7 @@ for i in range(11):
 			background.save(outfile + str(img) + '.jpg')
 
 			txt_file_name = outfile + str(img) + '.jpg'
-			file = open("/media/DensoML/59fbdd49-f78b-49c9-8a31-aac5cc3ff172/tl/" + str(img) +".txt","w")
+			file = open(processfile+ str(img) +".txt","w")
 
 			size = 3000,3000
 			classes = ([i,rand_1,rand_2])
